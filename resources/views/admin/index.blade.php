@@ -1,6 +1,6 @@
 @extends('admin.layout')
+@section('title', 'Dashboard')
 @section('content')
-
 <div>
     <div class="mb-4 grid grid-cols-2 gap-2 lg:grid-cols-4 md:gap-4">
         <div class="flex items-center gap-4 border border-gray-200 rounded-sm p-2 lg:p-4 bg-white">
@@ -115,138 +115,138 @@
 
 @push('script')
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const ctxPendapatan = document.getElementById('chartPendapatan').getContext('2d');
-    const ctxTrending = document.getElementById('chartTrending').getContext('2d');
-    const ctxInventory = document.getElementById('chartInventory').getContext('2d');
+    document.addEventListener("DOMContentLoaded", function() {
+        const ctxPendapatan = document.getElementById('chartPendapatan').getContext('2d');
+        const ctxTrending = document.getElementById('chartTrending').getContext('2d');
+        const ctxInventory = document.getElementById('chartInventory').getContext('2d');
 
-    // Konfigurasi Chart.js
-    new Chart(ctxPendapatan, {
-        type: 'line',
-        data: {
-            labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
-            datasets: [{
-                label: 'Jumlah Order',
-                data: ['10', '20', '40', '10', '30'],
-                borderColor: '#10b981',
-                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
+        // Konfigurasi Chart.js
+        new Chart(ctxPendapatan, {
+            type: 'line',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
+                datasets: [{
+                    label: 'Jumlah Order',
+                    data: ['10', '20', '40', '10', '30'],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: true
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: '#f1f5f9'
-                    }
-                },
-                x: {
-                    grid: {
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
                         display: false
                     }
-                }
-            }
-        }
-    });
-    new Chart(ctxTrending, {
-        type: 'doughnut',
-        data: {
-
-            labels: ['Standar', 'Deep Clean', 'Repaint'],
-            datasets: [{
-                label: 'Paket Terlaris',
-                data: ['10', '20', '5'],
-                backgroundColor: [
-                    'rgba(70, 235, 180, 0.91)',
-                    'rgba(227, 152, 71, 0.93)',
-                    'rgba(56, 127, 227, 0.91)'
-                ],
-                borderWidth: 0,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true,
-                        pointStyle: 'circle',
-                        padding: 20,
-                        font: {
-                            family: 'sans-serif',
-                            size: 12
-                        },
-                        color: '#475569'
-                    }
                 },
-
-                tooltip: {
-                    backgroundColor: '#1e293b',
-                    padding: 10,
-                    cornerRadius: 4,
-                    callbacks: {
-                        label: function(context) {
-                            return ` ${context.label}: ${context.raw}%`;
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f1f5f9'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
                         }
                     }
                 }
             }
-        }
-    });
+        });
+        new Chart(ctxTrending, {
+            type: 'doughnut',
+            data: {
 
-    new Chart(ctxInventory, {
-        type: 'bar',
-        data: {
-            labels: ['Sabun', 'Pewangi', 'Plastik', 'Stiker'],
-            datasets: [{
-                label: 'Sisa Stok',
-                data: ['10', '20', '40', '10'],
-                borderColor: '#10b981',
-                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
+                labels: ['Standar', 'Deep Clean', 'Repaint'],
+                datasets: [{
+                    label: 'Paket Terlaris',
+                    data: ['10', '20', '5'],
+                    backgroundColor: [
+                        'rgba(70, 235, 180, 0.91)',
+                        'rgba(227, 152, 71, 0.93)',
+                        'rgba(56, 127, 227, 0.91)'
+                    ],
+                    borderWidth: 0,
+                    fill: true
+                }]
             },
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: '#f1f5f9'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 20,
+                            font: {
+                                family: 'sans-serif',
+                                size: 12
+                            },
+                            color: '#475569'
+                        }
+                    },
+
+                    tooltip: {
+                        backgroundColor: '#1e293b',
+                        padding: 10,
+                        cornerRadius: 4,
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: ${context.raw}%`;
+                            }
+                        }
                     }
                 }
             }
-        }
-    });
+        });
 
-});
+        new Chart(ctxInventory, {
+            type: 'bar',
+            data: {
+                labels: ['Sabun', 'Pewangi', 'Plastik', 'Stiker'],
+                datasets: [{
+                    label: 'Sisa Stok',
+                    data: ['10', '20', '40', '10'],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                indexAxis: 'y',
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f1f5f9'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+    });
 </script>
 @endpush
