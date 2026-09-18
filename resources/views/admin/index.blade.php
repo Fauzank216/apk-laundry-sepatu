@@ -1,9 +1,9 @@
 @extends('admin.layout')
 @section('title', 'Dashboard')
 @section('content')
-<div>
+<div class="px-1 py-2 md:py-4 md:px-8">
     <div class="mb-4 grid grid-cols-2 gap-2 lg:grid-cols-4 md:gap-4">
-        <div class="flex items-center gap-4 border border-gray-200 rounded-sm p-2 lg:p-4 bg-white">
+        <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 lg:p-4 bg-white">
             <div class="p-2 bg-blue-50 text-blue-500 rounded-lg">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 md:size-12">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -15,7 +15,7 @@
                 <p class="font-semibold text-base md:text-xl text-slate-700">2</p>
             </div>
         </div>
-        <div class="flex items-center gap-4 border border-gray-200 rounded-sm p-2 md:p-4 bg-white">
+        <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
             <div class="p-2 bg-orange-50 text-orange-500 rounded-lg">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 md:size-12">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -27,7 +27,7 @@
                 <p class="font-semibold text-base md:text-xl text-slate-700">5</p>
             </div>
         </div>
-        <div class="flex items-center gap-4 border border-gray-200 rounded-sm p-2 md:p-4 bg-white">
+        <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
             <div class="p-2 bg-purple-50 text-purple-500 rounded-lg">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 md:size-12">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,7 +39,7 @@
                 <p class="font-semibold text-base md:text-xl text-slate-700">200</p>
             </div>
         </div>
-        <div class="flex items-center gap-4 border border-gray-200 rounded-sm p-2 md:p-4 bg-white">
+        <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
             <div class="p-2 bg-emerald-50 rounded-lg text-emerald-500">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 md:size-12">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -54,12 +54,12 @@
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
         <div class="col-span-4 lg:col-span-3">
-            <div class="border border-gray-200 h-80 relative mb-3 bg-white rounded-sm p-3">
+            <div class="border border-gray-300 h-80 relative mb-3 bg-white rounded-sm p-3">
                 <canvas id="chartPendapatan"></canvas>
             </div>
-            <div class="border border-gray-200 bg-white rounded-sm p-2">
+            <div class="border border-gray-300 bg-white rounded-sm p-2">
                 <div class="overflow-x-auto p-3">
-                    <table class="w-full text-center border border-gray-200">
+                    <table class="text-xs md:text-base w-full text-center border border-gray-200">
                         <thead>
                             <tr>
                                 <th class="p-2 border border-gray-200">#</th>
@@ -100,10 +100,10 @@
         </div>
         <div class="col-span-4 lg:col-span-1">
             <div
-                class="border border-gray-200 lg:h-60 relative flex justify-center items-center mb-3 bg-white rounded-sm p-2">
+                class="border border-gray-300 lg:h-60 relative flex justify-center items-center mb-3 bg-white rounded-sm p-2">
                 <canvas id="chartTrending"></canvas>
             </div>
-            <div class="border border-gray-200 lg:h-70 relative bg-white rounded-sm p-2">
+            <div class="border border-gray-300 lg:h-70 relative bg-white rounded-sm p-2">
                 <canvas id="chartInventory"></canvas>
             </div>
         </div>
