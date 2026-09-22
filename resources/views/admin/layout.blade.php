@@ -202,9 +202,79 @@
         <div>
             @yield('content')
         </div>
+        <div class="hidden fixed top-15 px-3 md:px-0 right-0 md:top-50 z-[999] -translate-y-1/2">
+            <div class="flex gap-2 items-center overflow-hidden rounded-md border border-gray-200 bg-white shadow-md">
+                <div class="self-stretch flex items-center justify-center bg-green-500 p-3 text-white">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="pr-4">
+                        <p class=text-base font-semibold text-gray-800">
+                            Success
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-500">
+                            Your account has been saved
+                        </p>
+                    </div>
+                </div>
+
+                <button type="button"
+                    class="cursor-pointer flex h-full items-center border-l border-gray-200 px-4 py-3 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-700">
+                    Close
+                </button>
+            </div>
+        </div>
+        <div class="hidden fixed top-15 px-3 md:px-0 right-0 md:top-50 z-[999] -translate-y-1/2">
+            <div class="flex gap-2 items-center overflow-hidden rounded-md border border-gray-200 bg-white shadow-md">
+                <div class="self-stretch flex items-center justify-center bg-red-500 p-3 text-white">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="pr-4">
+                        <p class=text-base font-semibold text-gray-800">
+                            Error
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-500">
+                            Your email address invalid
+                        </p>
+                    </div>
+                </div>
+
+                <button type="button"
+                    class="cursor-pointer flex h-full items-center border-l border-gray-200 px-4 py-3 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-700">
+                    Close
+                </button>
+            </div>
+        </div>
     </main>
 
-    @stack('script')
+    <script>
+        function showModal(id) {
+            const modal = document.getElementById(id)
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden')
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id)
+            if (!modal.classList.contains('hidden')) {
+                modal.classList.add('hidden')
+            }
+        }
+    </script>
+    @stack('scripts')
 </body>
 
 </html>
