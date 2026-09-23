@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="/transaksi"
+                    <a href="/transactions"
                         class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
                         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,7 +39,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="/transaksi/history"
+                    <a href="/transactions/history"
                         class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -56,7 +56,7 @@
         <div class="my-2">
             <div class="mb-2 text-slate-400  text-sm">KELOLA DATA</div>
             <div>
-                <div class="text-sm flex gap-3 items-center text-slate-700">
+                <div class="mb-2 text-sm flex gap-3 items-center text-slate-700">
                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         class="text-slate-500 size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +66,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="/admin/petugas"
+                        <a href="/admin/users"
                             class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
                             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                 class="size-6">
@@ -74,11 +74,11 @@
                                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
 
-                            Petugas
+                            Pengguna
                         </a>
                     </li>
                     <li>
-                        <a href="/admin/pelanggan"
+                        <a href="/admin/customers"
                             class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
                             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                 class="size-6">
@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/admin/layanan"
+                        <a href="/admin/services"
                             class="text-sm flex items-center gap-4 text-slate-600  py-2 px-4 block hover:text-white hover:bg-green-700 rounded-sm">
                             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                 class="size-6">
@@ -105,51 +105,7 @@
                 </ul>
             </div>
         </div>
-        <div class="my-2">
-            <div class="mb-2 text-slate-400 text-sm">KONFIGURASI</div>
-            <div class="text-sm flex gap-3 items-center text-slate-700">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="text-slate-500 size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-                </svg>
-                <p>Pengaturan Web</p>
-            </div>
-            <ul>
-                <li>
-                    <a href="/admin/petugas"
-                        class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                        </svg>
 
-                        Banner & Promosi
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/pelanggan"
-                        class="text-sm flex items-center gap-4 text-slate-600 block py-2 px-4 hover:text-white hover:bg-green-700 rounded-sm">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                        </svg>
-
-                        Katalog & Price
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/layanan"
-                        class="text-sm flex items-center gap-4 text-slate-600  py-2 px-4 block hover:text-white hover:bg-green-700 rounded-sm">
-                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
-                        </svg>
-                        Tentang Kami
-                    </a>
-                </li>
-            </ul>
-        </div>
         <div class="my-2">
             <div class="text-sm mb-2 text-slate-400 text-sm">LOGOUT & AUDIT</div>
             <ul>
@@ -202,7 +158,8 @@
         <div>
             @yield('content')
         </div>
-        <div class="hidden fixed top-15 px-3 md:px-0 right-0 md:top-50 z-[999] -translate-y-1/2">
+        @if(session('success'))
+        <div id="success-modal" class="fixed top-15 px-3 md:px-0 right-0 md:top-50 z-[999] -translate-y-1/2">
             <div class="flex gap-2 items-center overflow-hidden rounded-md border border-gray-200 bg-white shadow-md">
                 <div class="self-stretch flex items-center justify-center bg-green-500 p-3 text-white">
                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
@@ -218,17 +175,18 @@
                             Success
                         </p>
                         <p class="text-xs md:text-sm text-slate-500">
-                            Your account has been saved
+                            {{session('success')}}
                         </p>
                     </div>
                 </div>
 
-                <button type="button"
+                <button onclick="closeModal('success-modal')" type="button"
                     class="cursor-pointer flex h-full items-center border-l border-gray-200 px-4 py-3 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-700">
                     Close
                 </button>
             </div>
         </div>
+        @endif
         <div class="hidden fixed top-15 px-3 md:px-0 right-0 md:top-50 z-[999] -translate-y-1/2">
             <div class="flex gap-2 items-center overflow-hidden rounded-md border border-gray-200 bg-white shadow-md">
                 <div class="self-stretch flex items-center justify-center bg-red-500 p-3 text-white">
@@ -260,19 +218,36 @@
     </main>
 
     <script>
-        function showModal(id) {
-            const modal = document.getElementById(id)
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden')
+    function showModal(id, path, btn) {
+        const modal = document.getElementById(id)
+        if (modal.classList.contains('hidden')) {
+            if (path) {
+                const form = modal.querySelector('form')
+                form.action = path
+                if (btn) {
+                    form.querySelector('input[name="_method"]').value = "PUT"
+                    const inputs = modal.querySelectorAll('.form-control')
+                    inputs.forEach(input => {
+                        input.value = btn.getAttribute(`data-${input.name}`)
+                    });
+                }
             }
+            modal.classList.remove('hidden')
         }
+    }
 
-        function closeModal(id) {
-            const modal = document.getElementById(id)
-            if (!modal.classList.contains('hidden')) {
-                modal.classList.add('hidden')
+    function closeModal(id) {
+        const modal = document.getElementById(id)
+        if (!modal.classList.contains('hidden')) {
+            const form = modal.querySelector('form')
+            if (form) {
+                form.reset()
+                form.action = "#"
+                form.querySelector('input[name="_method"]').value = "POST"
             }
+            modal.classList.add('hidden')
         }
+    }
     </script>
     @stack('scripts')
 </body>
