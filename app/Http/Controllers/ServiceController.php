@@ -10,7 +10,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('admin.layanan.index', compact('services'));
+        return view('admin.service', compact('services'));
     }
 
     public function store(Request $request)

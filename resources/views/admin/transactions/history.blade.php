@@ -44,13 +44,14 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($transactions as $transaction)
                 <tr>
-                    <td class="p-2 border-b border-gray-200">1</td>
-                    <td class="p-2 border-b border-gray-200">Fauzan Muammar Kamil</td>
-                    <td class="p-2 border-b border-gray-200">2</td>
-                    <td class="p-2 border-b border-gray-200">Lunas</td>
-                    <td class="p-2 border-b border-gray-200">Rp. 50.000</td>
-                    <td class="p-2 border-b border-gray-200">2026-08-10</td>
+                    <td class="p-2 border-b border-gray-200">{{$transaction->id}}</td>
+                    <td class="p-2 border-b border-gray-200">{{$transaction->customers->name}}</td>
+                    <td class="p-2 border-b border-gray-200">{{$transaction->qty}}</td>
+                    <td class="p-2 border-b border-gray-200"></td>
+                    <td class="p-2 border-b border-gray-200">Rp. {{Number::format($transaction->total,'idn')}}</td>
+                    <td class="p-2 border-b border-gray-200">{{$transaction->created_at}}</td>
                     <td class="p-2 border-b border-gray-200">
                         <button
                             class="text-xs md:text-base cursor-pointer bg-cyan-500 rounded-sm text-white p-2 hover:bg-cyan-600">
@@ -72,6 +73,7 @@
                         </button>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

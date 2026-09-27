@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.petugas.index', compact('users'));
+        return view('admin.user', compact('users'));
     }
 
     public function store(Request $request)

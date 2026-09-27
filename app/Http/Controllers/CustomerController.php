@@ -10,7 +10,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('admin.pelanggan.index', compact('customers'));
+        return view('admin.customer', compact('customers'));
     }
 
     public function store(Request $request)
