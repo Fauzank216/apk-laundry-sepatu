@@ -13,6 +13,13 @@ class CustomerController extends Controller
         return view('admin.customer', compact('customers'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $customers = Customer::where('no_telp', 'LIKE', "%{$search}%")->orWhere('name', 'LIKE', "%{$search}%")->get();
+        return response()->json($customers);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate(

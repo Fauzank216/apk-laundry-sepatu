@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('no_invoice', 10)->unique();
             $table->foreignId('customer_id')->constrained('customers', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->integer('qty');
             $table->integer('total_amount');
+            $table->enum('status', ['Pending', 'Proses', 'Selesai', 'Sudah Diambil'])->default('Pending');
             $table->timestamps();
         });
     }
