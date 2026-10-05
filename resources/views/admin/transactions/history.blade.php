@@ -26,15 +26,16 @@
                 <option value="#">Maret</option>
             </select>
         </div>
-        <div>
-
+        <div class="ml-auto">
+            <input type="search" placeholder="Masukan Invoice..."
+                class="text-xs md:text-base block border border-gray-400 rounded-sm p-2 w-full">
         </div>
     </div>
     <div class="bg-white border border-gray-300 overflow-x-auto">
         <table class="text-xs md:text-base rounded-sm min-w-[700px] w-full text-center">
             <thead class="text-xs md:text-base text-slate-800 font-semibold bg-gray-50">
                 <tr>
-                    <th class="p-3 border-b border-gray-100">NO</th>
+                    <th class="p-3 border-b border-gray-100">#</th>
                     <th class="p-3 border-b border-gray-100">PELANGGAN</th>
                     <th class="p-3 border-b border-gray-100">QTY</th>
                     <th class="p-3 border-b border-gray-100">STATUS</th>
@@ -46,17 +47,19 @@
             <tbody>
                 @foreach($transactions as $transaction)
                 <tr>
-                    <td class="p-2 border-b border-gray-200">{{$transaction->id}}</td>
+                    <td class="p-2 border-b border-gray-200">{{$transaction->no_invoice}}</td>
                     <td class="p-2 border-b border-gray-200">{{$transaction->customers->name}}</td>
                     <td class="p-2 border-b border-gray-200">{{$transaction->qty}}</td>
                     <td class="p-2 border-b border-gray-200"></td>
-                    <td class="p-2 border-b border-gray-200">Rp. {{Number::format($transaction->total,'idn')}}</td>
-                    <td class="p-2 border-b border-gray-200">{{$transaction->created_at}}</td>
+                    <td class="p-2 border-b border-gray-200">Rp.
+                        {{Number::format($transaction->total_amount, locale:'idn')}}
+                    </td>
+                    <td class="p-2 border-b border-gray-200">{{ $transaction->created_at->format('d M Y')}}</td>
                     <td class="p-2 border-b border-gray-200">
                         <button
-                            class="text-xs md:text-base cursor-pointer bg-cyan-500 rounded-sm text-white p-2 hover:bg-cyan-600">
-                            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                class="size-6">
+                            class="text-xs md:text-base cursor-pointer bg-cyan-600 rounded-sm text-white p-2 hover:bg-cyan-700">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"
+                                data-id="{{$transaction->id}}">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,6 +80,5 @@
             </tbody>
         </table>
     </div>
-
 </div>
 @endsection
