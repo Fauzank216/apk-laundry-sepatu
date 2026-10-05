@@ -15,18 +15,15 @@
                         Informasi Pelanggan
                     </p>
                     <button
-                        class="text-xs md:text-base rounded-sm cursor-pointer p-1 md:p-2 border border-cyan-600">Pelanggan
+                        class="text-xs md:text-base rounded-sm cursor-pointer p-1 md:p-2 border border-cyan-600 hover:bg-cyan-50">Pelanggan
                         Baru</button>
                 </div>
                 <hr class="my-2 border border-gray-100">
-                <div class="px-1 md:px-2 flex items-center gap-4">
-                    <div
-                        class="w-9 h-9 rounded-full bg-cyan-100 text-cyan-700 font-bold text-xs flex items-center justify-center shrink-0">
-                        BD
-                    </div>
-                    <div>
-                        <p class="text-xs md:text-base font-semibold text-slate-800">Budiono Siregar</p>
-                        <p class="text-xs md:text-base text-gray-500">0897887338</p>
+                <div id="customer-info" class="px-1 md:px-2 flex justify-between items-center">
+                    <div class="flex-1 text-center">
+                        <button onclick="showModal('modal-search-customer')"
+                            class="text-xs md:text-base rounded-sm cursor-pointer p-1 md:p-2 text-cyan-600 font-semibold hover:underline">Cari
+                            Pelanggan </button>
                     </div>
                 </div>
             </div>
@@ -100,7 +97,7 @@
                         </div>
                         <div>
                             <button id="btn-add-order"
-                                class="text-xs md:text-base flex items-center justify-center text-cyan-600 font-semibold p-2 rounded-sm cursor-pointer border border-cyan-600 w-full">
+                                class="text-xs md:text-base flex items-center justify-center text-cyan-600 font-semibold p-2 rounded-sm cursor-pointer border border-dashed border-cyan-600 w-full hover:bg-cyan-50">
                                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="size-4 md:size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -151,6 +148,134 @@
         </div>
     </div>
 </div>
+
+<div id="modal-search-customer"
+    class="modal hidden fixed inset-0 z-[999] flex items-center justify-center bg-slate-900/30 p-4">
+    <div
+        class="w-full animate-modal max-w-[560px] overflow-hidden rounded-md border border-gray-300 bg-white shadow-xl">
+
+        <div class="flex items-center  justify-between border-b border-gray-200 px-3 py-2 md:px-6 md:py-4">
+            <div>
+                <h2 class="text-xs md:text-xl font-semibold text-slate-800">
+                    Cari Pelanggan
+                </h2>
+            </div>
+
+            <button onclick="closeModal('modal-search-customer')" type="button"
+                class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xl text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                aria-label="Tutup">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="px-3 py-2 md:px-6 md:py-3">
+            <div class="">
+                <div class="text-red-500"></div>
+                <div>
+                    <input id="search-customer" name="search-customer" type="search"
+                        placeholder="Masukkan identitas pelanggan..." autocomplete="off"
+                        class="text-xs md:text-base form-control w-full rounded-md border border-slate-300 px-4 py-2.5 text-xs md:text-base text-slate-700 placeholder-slate-400 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                    <div class="mt-2 w-full shadow-sm bg-white">
+                        <table class="text-xs md:text-base w-full text-center border border-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="p-2 border border-gray-200">#</th>
+                                    <th class="p-2 border border-gray-200">Nama</th>
+                                    <th class="p-2 border border-gray-200">No telp</th>
+                                    <th class="p-2 border border-gray-200">Pilih</th>
+                                </tr>
+                            </thead>
+                            <tbody id="search-result">
+                                <!-- <tr>
+                                    <td class="p-2 border border-gray-200">1</td>
+                                    <td class="p-2 border border-gray-200">Fauzan</td>
+                                    <td class="p-2 border border-gray-200">08978887338</td>
+                                    <td class="p-2 border border-gray-200">
+                                        <input type="checkbox">
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 flex items-center justify-end gap-3 border-t border-gray-200 pt-4">
+
+                <button onclick="closeModal('modal-search-customer')" type="button"
+                    class="cursor-pointer rounded-md border border-slate-300 bg-white px-5 py-2.5 text-xs md:text-base font-semibold text-slate-600 transition hover:bg-slate-50">
+                    Batal
+                </button>
+                <button id="btn-search" type="button"
+                    class="rounded-md bg-cyan-700 px-5 py-2.5 text-xs md:text-base font-semibold text-white transition hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-300">
+                    Ok
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="modal-transaction-success"
+    class="modal hidden  fixed inset-0 z-[999] flex items-center justify-center bg-slate-900/40 p-4">
+    <div
+        class="w-full animate-modal max-w-sm max-h-[90vh] overflow-y-auto bg-white rounded-xl p-5 sm:p-6 space-y-4 sm:space-y-5 border border-slate-100 my-auto">
+
+        <div class="text-center pt-1 space-y-1.5">
+            <div
+                class="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-50 text-emerald-500 mb-3 ring-8 ring-emerald-50/50">
+                <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="2.5"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+            </div>
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Pesanan Berhasil!</h1>
+            <p class="text-xs sm:text-sm text-slate-500">Pesanan kamu sudah kami terima dan siap dirawat.</p>
+        </div>
+
+        <div
+            class="flex items-center justify-between bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-dashed border-slate-400 text-xs">
+            <div>
+                <span class="text-slate-400 block font-medium text-[10px] sm:text-xs">NO. INVOICE</span>
+                <span class="font-bold text-slate-700 text-xs sm:text-sm" id="transaction-invoice"></span>
+            </div>
+            <div class="text-right">
+                <span class="text-slate-400 block font-medium text-[10px] sm:text-xs">TANGGAL</span>
+                <span class="font-semibold text-slate-700 text-xs sm:text-sm" id="transaction-date"></span>
+            </div>
+        </div>
+
+        <div class="space-y-1.5">
+            <div class="grid grid-cols-2 gap-2.5 mb-2">
+                <button
+                    class="w-full py-3 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-sm font-semibold text-xs transition flex items-center justify-center gap-1.5 active:scale-95">
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    <span>Unduh Struk</span>
+                </button>
+                <button
+                    class="w-full py-3 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-sm font-semibold text-xs transition flex items-center justify-center gap-1.5 active:scale-95">
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314" />
+                    </svg>
+                    <span>Bagikan</span>
+                </button>
+            </div>
+
+            <button onclick="closeModal('modal-transaction-success')"
+                class="w-full py-3.5 px-4 bg-cyan-700 hover:bg-cyan-800 text-white rounded-sm font-bold text-xs tracking-wide shadow-lg shadow-cyan-600/20 transition active:scale-95">
+                Selesai
+            </button>
+        </div>
+
+    </div>
+</div>
 @endsection
 @push('scripts')
 <script>
@@ -185,13 +310,13 @@ function renderCard() {
                             <img class="w-25 rounded-sm" src="{{asset('img/ilustrasi.jpg')}}" alt="ilustrasi">
                         </div>
                         <div>
-                            <p class="text-xs md:text-base text-slate-800 font-semibold">${order.name}</p>
+                            <p class="text-xs md:text-base text-slate-800 font-semibold">${order.typeof_shoes}</p>
                             <p class="text-xs md:text-base text-white bg-blue-300 px-2 rounded-sm w-[max-content]">${order.serviceName}</p>
                             <p class="text-xs md:text-base text-slate-500">${order.notes}</p>
                         </div>
                     </div>
                     <div>
-                        <p class="text-xs md:text-base text-right mb-2 text-cyan-600">Rp. ${order.servicePrice.toLocaleString('id-ID')}</p>
+                        <p class="text-xs md:text-base text-right mb-2 text-cyan-600">Rp. ${order.subtotal.toLocaleString('id-ID')}</p>
                         <div class="flex gap-2">
                             <button
                                onclick="editOrder(${i})" class="text-xs md:text-base text-yellow-500 rounded-sm cursor-pointer p-2 border border-yellow-200 hover:bg-yellow-50">
@@ -224,7 +349,7 @@ form.addEventListener('submit', function(e) {
 
 function calculateTotal() {
     return orders.reduce((prev, curr) => {
-        return prev + curr.servicePrice
+        return prev + curr.subtotal
     }, 0)
 }
 
@@ -256,10 +381,11 @@ function addOrder() {
     let servicePrice = parseInt(selectService.options[selectedOptions].getAttribute('data-price'))
     let serviceId = selectService.value
     orders.push({
-        name: inputShoesName.value,
-        serviceId,
+        typeof_shoes: inputShoesName.value,
+        service_id: serviceId,
         serviceName,
-        servicePrice,
+        subtotal: servicePrice,
+        img: null,
         notes
     })
 
@@ -271,7 +397,7 @@ function addOrder() {
 function editOrder(index) {
     let order = orders[index]
     document.querySelector('input[name="name"]').value = order.name
-    document.querySelector('select[name="service"]').value = order.serviceId
+    document.querySelector('select[name="service"]').value = order.service_id
     document.querySelector('textarea[name="description"]').value = order.notes
 
     orders.splice(index, 1)
@@ -285,19 +411,37 @@ function deleteOrder(index) {
     renderCard()
 }
 
+function transactionSuccess(data) {
+    const trxInvoice = document.getElementById('transaction-invoice')
+    const trxDate = document.getElementById('transaction-date')
+
+    trxInvoice.innerText = ""
+    trxDate.innerText = ""
+    if (!data) return
+
+    trxInvoice.innerText = "#" + data.no_invoice
+    trxDate.innerText = data.created_at
+    showModal('modal-transaction-success')
+}
+
 function saveOrder() {
-    fetch('http://127.0.0.1:8000/transactions', {
+    fetch('http://127.0.0.1:8000/api/transactions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify(orders)
+            body: JSON.stringify({
+                customer_id: document.getElementById('input-customer-id').value,
+                'qty': orders.length,
+                'total_amount': calculateTotal(),
+                details: orders
+            })
         })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
+        .then(response => response.json())
+        .then(response => {
+            transactionSuccess(response.data)
         })
         .catch(response => {
             console.error(response)
@@ -307,5 +451,95 @@ function saveOrder() {
 
 btnSaveOrder.addEventListener('click', saveOrder)
 btnAddOrder.addEventListener('click', addOrder)
+
+// end of transactions
+const searchInput = document.getElementById('search-customer')
+const searchResult = document.getElementById('search-result')
+const searchBtn = document.getElementById('btn-search')
+
+function renderCustomer(data) {
+    searchResult.innerHTML = ""
+    if (!data) {
+        searchResult.innerHTML = `<li
+        class = "text-xs md:text-base border-b border-gray-200 p-2 text-slate-500 cursor-pointer hover:bg-gray-50" > Data tidak ditemukan <
+            /li>`
+        return
+    }
+
+    data.forEach((d, i) => {
+        searchResult.innerHTML += `<tr>
+            <td class="p-2 border border-gray-200">${i}</td>
+            <td class="p-2 border border-gray-200">${d.name}</td>
+            <td class="p-2 border border-gray-200">${d.no_telp}</td>
+            <td class="p-2 border border-gray-200">
+                <input type="radio" name="checkbox-customer" data-id="${d.id}" data-name="${d.name}" data-no_telp="${d.no_telp}">
+            </td>
+        </tr>
+`
+    });
+}
+
+function renderCustomerInfo(data) {
+    const customerInfo = document.getElementById('customer-info')
+    customerInfo.innerHTML = `
+    <div class="flex items-center gap-4">
+                        <div
+                            class="w-9 h-9 rounded-full bg-cyan-100 text-cyan-700 font-bold text-xs flex items-center justify-center shrink-0">
+                            BD
+                        </div>
+                        <div>
+                            <p class="text-xs md:text-base font-semibold text-slate-800">${data.name}</p>
+                            <p class="text-xs md:text-base text-gray-500">${data.no_telp}</p>
+                            <input id="input-customer-id" type="hidden" value="${data.id}">
+                        </div>
+                    </div>
+                    <div>
+                        <button class="text-cyan-600 hover:text-cyan-500 flex items-center"
+                            onclick="showModal('modal-search-customer')">
+                            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+
+                            </button>
+     </div>
+    `
+}
+
+function findCustomer(e) {
+    let value = e.target.value.trim()
+
+    if (!value) {
+        searchResult.innerHTML = ""
+        return
+    }
+
+    fetch(`http://127.0.0.1:8000/api/customers?search=${value}`, {
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            renderCustomer(data)
+        })
+        .catch(response => {
+            console.error(response)
+        })
+}
+
+searchInput.addEventListener('input', findCustomer)
+searchBtn.addEventListener('click', function(e) {
+    const li = document.querySelector('input[name="checkbox-customer"]:checked')
+    console.log(li)
+    if (!li) return
+
+    renderCustomerInfo({
+        name: li.dataset.name,
+        no_telp: li.dataset.no_telp,
+        id: li.dataset.id
+    })
+
+    closeModal('modal-search-customer')
+})
 </script>
 @endpush
