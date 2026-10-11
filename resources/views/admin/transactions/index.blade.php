@@ -95,6 +95,20 @@
                                 class="text-xs md:text-base w-full border border-gray-200 rounded-sm p-2" type="text"
                                 value="Rp. 0" readonly>
                         </div>
+                        <div class="mb-3">
+                            <label class="text-xs md:text-base mb-2 block" for="#">Bayar</label>
+                            <input id="amount-paid"
+                                class="text-xs md:text-base w-full border border-gray-200 rounded-sm p-2" type="text"
+                                value="Rp. 0">
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-xs md:text-base mb-2 block" for="#">Metode Pembayaran</label>
+                            <select id="payment-method"
+                                class="text-xs md:text-base w-full border border-gray-200 rounded-sm p-2">
+                                <option value="CASH">CASH</option>
+                                <option value="QRIS">QRIS</option>
+                            </select>
+                        </div>
                         <div>
                             <button id="btn-add-order"
                                 class="text-xs md:text-base flex items-center justify-center text-cyan-600 font-semibold p-2 rounded-sm cursor-pointer border border-dashed border-cyan-600 w-full hover:bg-cyan-50">
@@ -283,6 +297,7 @@ const btnAddOrder = document.getElementById('btn-add-order')
 const form = document.querySelector('form')
 const cardContainer = document.getElementById('card-container')
 const selectService = document.querySelector('select[name="service"]')
+const selectMethod = document.getElementById('payment-method')
 const priceOfService = document.getElementById('service-price')
 const btnSaveOrder = document.getElementById('btn-save-order')
 let orders = []
@@ -316,7 +331,7 @@ function renderCard() {
                         </div>
                     </div>
                     <div>
-                        <p class="text-xs md:text-base text-right mb-2 text-cyan-600">Rp. ${order.subtotal.toLocaleString('id-ID')}</p>
+                        <p class="text-xs md:text-base text-right mb-2 text-cyan-600">Rp. ${order.price.toLocaleString('id-ID')}</p>
                         <div class="flex gap-2">
                             <button
                                onclick="editOrder(${i})" class="text-xs md:text-base text-yellow-500 rounded-sm cursor-pointer p-2 border border-yellow-200 hover:bg-yellow-50">
@@ -349,7 +364,7 @@ form.addEventListener('submit', function(e) {
 
 function calculateTotal() {
     return orders.reduce((prev, curr) => {
-        return prev + curr.subtotal
+        return prev + curr.price
     }, 0)
 }
 
@@ -379,12 +394,13 @@ function addOrder() {
     let selectedOptions = selectService.selectedIndex
     let serviceName = selectService.options[selectedOptions].getAttribute('data-name')
     let servicePrice = parseInt(selectService.options[selectedOptions].getAttribute('data-price'))
+
     let serviceId = selectService.value
     orders.push({
         typeof_shoes: inputShoesName.value,
         service_id: serviceId,
         serviceName,
-        subtotal: servicePrice,
+        price: servicePrice,
         img: null,
         notes
     })
@@ -399,7 +415,6 @@ function editOrder(index) {
     document.querySelector('input[name="name"]').value = order.name
     document.querySelector('select[name="service"]').value = order.service_id
     document.querySelector('textarea[name="description"]').value = order.notes
-
     orders.splice(index, 1)
     updateTransactionSummary()
     renderCard()
@@ -434,8 +449,11 @@ function saveOrder() {
             },
             body: JSON.stringify({
                 customer_id: document.getElementById('input-customer-id').value,
-                'qty': orders.length,
-                'total_amount': calculateTotal(),
+                qty: orders.length,
+                payment_method: selectMethod.value,
+                total_amount: calculateTotal(),
+                amount_paid: document.getElementById('amount-paid').value,
+                order_type: 'walk-in',
                 details: orders
             })
         })

@@ -13,12 +13,24 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('no_invoice', 10)->unique();
+            $table->string('no_invoice', 20)->unique();
+
             $table->foreignId('customer_id')->constrained('customers', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
+
             $table->integer('qty');
             $table->integer('total_amount');
-            $table->enum('status', ['Pending', 'Proses', 'Selesai', 'Sudah Diambil'])->default('Pending');
+            $table->integer('amount_paid')->default(0);
+            $table->integer('change_amount')->default(0);
+
+            $table->enum('order_type', ['walk-in', 'online'])->default('walk-in');
+
+            $table->enum('booking_status', ['pending', 'approved', 'rejected'])->default('approved');
+
+            $table->enum('payment_status', ['paid', 'unpaid'])->default('unpaid');
+
+            $table->enum('payment_method', ['QRIS', 'CASH'])->nullable();
+
             $table->timestamps();
         });
     }

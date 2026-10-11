@@ -14,7 +14,7 @@ class Transaction extends Model
 {
     /** @use HasFactory<\Database\Factories\TransactionFactory> */
     use HasFactory;
-    protected $fillable = ['customer_id', 'user_id', 'qty', 'total_amount'];
+    protected $fillable = ['customer_id', 'qty', 'total_amount', 'amount_paid', 'payment_method', 'order_type'];
 
     function customers()
     {

@@ -17,9 +17,9 @@
         </div>
     </div>
 
-    <div class="bg-white border border-gray-300 overflow-x-auto">
+    <div class="rounded-t-lg border border-gray-300 overflow-x-auto">
         <table class="text-xs md:text-base rounded-sm min-w-[700px] w-full text-center">
-            <thead class="text-slate-800 font-semibold text-sm bg-gray-50">
+            <thead class="bg-cyan-700 text-white text-slate-800 font-semibold text-sm">
                 <tr>
                     <th class="p-3 border-b border-gray-100">NO</th>
                     <th class="p-3 border-b border-gray-100">NAME</th>
@@ -29,18 +29,18 @@
                     <th class="p-3 border-b border-gray-100">AKSI</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-slate-50">
                 @foreach($services as $service)
                 <tr>
-                    <td class="p-2 border-b border-gray-200">{{$service->id}}</td>
-                    <td class="p-2 border-b border-gray-200">{{$service->name}}</td>
-                    <td class="p-2 border-b border-gray-200">Rp. {{Number::format($service->price, locale:'idn')}}</td>
-                    <td class="p-2 border-b border-gray-200">null</td>
-                    <td class="p-2 border-b border-gray-200">
+                    <td class="p-1 border-b border-gray-200">{{$service->id}}</td>
+                    <td class="p-1 border-b border-gray-200">{{$service->name}}</td>
+                    <td class="p-1 border-b border-gray-200">Rp. {{Number::format($service->price, locale:'idn')}}</td>
+                    <td class="p-1 border-b border-gray-200">null</td>
+                    <td class="p-1 border-b border-gray-200">
                         <textarea class="w-full max-h-[50px] border border-gray-200 rounded-sm p-2" name="#" id=""
                             readonly>{{$service->description}}</textarea>
                     </td>
-                    <td class="p-2 border-b border-gray-200">
+                    <td class="p-1 border-b border-gray-200">
                         <button
                             onclick="showModal('confirm-delete-layanan', 'http://127.0.0.1:8000/admin/services/{{$service->id}}')"
                             class="cursor-pointer text-red-500">

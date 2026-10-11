@@ -17,9 +17,9 @@
         </div>
     </div>
 
-    <div class="bg-white border border-gray-300 overflow-x-auto">
+    <div class="rounded-t-lg border border-gray-300 overflow-x-auto">
         <table class="text-xs md:text-base rounded-sm min-w-[700px] w-full text-center">
-            <thead class="text-xs md:text-base text-slate-800 font-semibold bg-gray-50">
+            <thead class="bg-cyan-700 text-white text-xs md:text-base text-slate-800 font-semibold">
                 <tr>
                     <th class="p-3 border-b border-gray-100">NO</th>
                     <th class="p-3 border-b border-gray-100">NAME</th>
@@ -28,7 +28,7 @@
                     <th class="p-3 border-b border-gray-100">ACTION</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-slate-50">
                 @foreach($customers as $customer)
                 <tr>
                     <td class="p-2 border-b border-gray-200">{{$customer->id}}</td>

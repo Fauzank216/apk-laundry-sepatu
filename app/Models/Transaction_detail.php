@@ -11,7 +11,7 @@ class Transaction_detail extends Model
 {
     /** @use HasFactory<\Database\Factories\TransactionDetailFactory> */
     use HasFactory;
-    protected $fillable = ['transaction_id', 'typeof_shoes', 'service_id', 'subtotal', 'img', 'notes'];
+    protected $fillable = ['transaction_id', 'typeof_shoes', 'service_id', 'price', 'img', 'notes'];
 
     function transactions()
     {

@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('order_tracking', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id')->constrained('transactions')->cascadeOnDelete();
-            $table->boolean('is_active')->default(false);
-            $table->enum('status', ['Diterima', 'Dicuci', 'Dikeringkan', 'Quality Check', 'Selesai', 'Diambil']);
+
+            $table->enum('status', ['in_progress', 'completed'])->default('in_progress');
+            $table->enum('progres', ['Diterima', 'Dicuci', 'Dikeringkan', 'Quality Check', 'Selesai', 'Diambil']);
+
             $table->timestamps();
         });
     }

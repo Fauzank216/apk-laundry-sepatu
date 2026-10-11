@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('transaction_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id')->constrained('transactions', 'id')->cascadeOnDelete();
-            $table->string('typeof_shoes');
             $table->foreignId('service_id')->constrained('services', 'id')->cascadeOnDelete();
-            $table->integer('subtotal');
+
+            $table->string('typeof_shoes');
+            $table->integer('price');
+
             $table->text('img')->nullable();
             $table->text('notes')->nullable();
+
             $table->timestamps();
         });
     }

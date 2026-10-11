@@ -12,7 +12,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-300 md:text-lg">Order Hari Ini</p>
-                <p class="font-semibold text-base md:text-xl text-slate-700">2</p>
+                <p class="font-semibold text-base md:text-xl text-slate-700">{{$today_orders}}</p>
             </div>
         </div>
         <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
@@ -24,7 +24,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-300 md:text-lg">Total Paket</p>
-                <p class="font-semibold text-base md:text-xl text-slate-700">5</p>
+                <p class="font-semibold text-base md:text-xl text-slate-700">{{count($total_services)}}</p>
             </div>
         </div>
         <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
@@ -36,7 +36,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-300 md:text-lg">Total Pelanggan</p>
-                <p class="font-semibold text-base md:text-xl text-slate-700">200</p>
+                <p class="font-semibold text-base md:text-xl text-slate-700">{{$total_customers}}</p>
             </div>
         </div>
         <div class="flex items-center gap-4 border border-gray-300 rounded-sm p-2 md:p-4 bg-white">
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <p class="text-gray-300 md:text-lg">Kas</p>
-                <p class="text-xs font-semibold text-base md:text-xl text-slate-700">Rp. 1.500.000</p>
+                <p class="text-xs font-semibold text-base md:text-xl text-slate-700">{{$total_saldo}}</p>
             </div>
         </div>
     </div>
@@ -57,42 +57,29 @@
             <div class="border border-gray-300 h-80 relative mb-3 bg-white rounded-sm p-3">
                 <canvas id="chartPendapatan"></canvas>
             </div>
-            <div class="border border-gray-300 bg-white rounded-sm p-2">
+            <div class="border border-gray-300 bg-white rounded-t-lg p-2">
                 <div class="overflow-x-auto p-3">
-                    <table class="text-xs md:text-base w-full text-center border border-gray-200">
-                        <thead>
+                    <table class="text-xs md:text-base w-full text-center">
+                        <thead class="bg-cyan-700 text-white text-xs md:text-base text-slate-800 font-semibold">
                             <tr>
-                                <th class="p-2 border border-gray-200">#</th>
-                                <th class="p-2 border border-gray-200">Nama</th>
-                                <th class="p-2 border border-gray-200">Paket</th>
-                                <th class="p-2 border border-gray-200">Total</th>
-                                <th class="p-2 border border-gray-200">Tanggal</th>
+                                <th class="p-2 border-b border-gray-100">#</th>
+                                <th class="p-2 border-b border-gray-100">Nama</th>
+                                <th class="p-2 border-b border-gray-100">QTY</th>
+                                <th class="p-2 border-b border-gray-100">Total</th>
+                                <th class="p-2 border-b border-gray-100">Tanggal</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-slate-50">
+                            @foreach($last_orders as $last_order)
                             <tr>
-                                <td class="p-2 border border-gray-200">1</td>
-                                <td class="p-2 border border-gray-200">Irfan</td>
-                                <td class="p-2 border border-gray-200">Deep Clean</td>
-                                <td class="p-2 border border-gray-200">Rp. 100.000</td>
-                                <td class="p-2 border border-gray-200">Senin, 4 Januari 2026</td>
+                                <td class="p-2 border-b border-gray-100">{{$loop->iteration}}</td>
+                                <td class="p-2 border-b border-gray-100">{{$last_order->customers->name}}</td>
+                                <td class="p-2 border-b border-gray-100">{{$last_order->qty}} pasang</td>
+                                <td class="p-2 border-b border-gray-100">{{$last_order->total_amount}}</td>
+                                <td class="p-2 border-b border-gray-100">{{$last_order->created_at->format('d, M H:i')}}
+                                </td>
                             </tr>
-                            <tr>
-                                <td class="p-2 border border-gray-200">2</td>
-                                <td class="p-2 border border-gray-200">Bagas</td>
-                                <td class="p-2 border border-gray-200">Standar</td>
-                                <td class="p-2 border border-gray-200">Rp. 40.000</td>
-                                <td class="p-2 border border-gray-200">Senin, 4 Januari 2026</td>
-                            </tr>
-                            <tr>
-                                <td class="p-2 border border-gray-200">3</td>
-                                <td class="p-2 border border-gray-200">Pasha</td>
-                                <td class="p-2 border border-gray-200">Standar</td>
-                                <td class="p-2 border border-gray-200">Rp. 20.000</td>
-                                <td class="p-2 border border-gray-200">Senin, 4 Januari 2026</td>
-                            </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -119,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctxPendapatan = document.getElementById('chartPendapatan').getContext('2d');
     const ctxTrending = document.getElementById('chartTrending').getContext('2d');
     const ctxInventory = document.getElementById('chartInventory').getContext('2d');
-
     // Konfigurasi Chart.js
     new Chart(ctxPendapatan, {
         type: 'line',

@@ -45,3 +45,19 @@ button {
 .animate-modal {
     animation: modalShow 0.50s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes kedip {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.kedap {
+    animation: kedip 1s ease-in-out infinite;
+}
